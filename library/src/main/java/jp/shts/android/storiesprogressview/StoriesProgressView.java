@@ -219,6 +219,7 @@ public class StoriesProgressView extends LinearLayout {
      * Need to call when Activity or Fragment destroy
      */
     public void destroy() {
+        clear();
         for (PausableProgressBar p : progressBars) {
             p.clear();
         }
@@ -238,5 +239,15 @@ public class StoriesProgressView extends LinearLayout {
     public void resume() {
         if (current < 0) return;
         progressBars.get(current).resumeProgress();
+    }
+
+    public void clear() {
+        progressBars.clear();
+        storiesCount = -1;
+        current = -1;
+        storiesListener = null;
+        isComplete = false;
+        isSkipStart = false;
+        isReverseStart = false;
     }
 }
