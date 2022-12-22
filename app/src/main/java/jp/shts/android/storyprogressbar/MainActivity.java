@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements StoriesProgressVi
 
         storiesProgressView = (StoriesProgressView) findViewById(R.id.stories);
         storiesProgressView.setStoriesCount(PROGRESS_COUNT);
-        storiesProgressView.setStoryDuration(3000L);
+        long[] durations = new long[]{3000L, 2000L, 5000L};
+        storiesProgressView.setStoriesCountWithDurations(durations);
         // or
         // storiesProgressView.setStoriesCountWithDurations(durations);
         storiesProgressView.setStoriesListener(this);
